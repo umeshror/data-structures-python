@@ -5,7 +5,6 @@
 #
 # Let's begin with some simple examples and explore what their Big-O is.
 #
-#
 #  O(1) Constant
 #
 
@@ -15,7 +14,6 @@ def func_constant(values):
     Prints first item in a list of values.
     '''
     return values[0]
-
 
 func_constant([1, 2, 3])
 
@@ -28,7 +26,6 @@ func_constant([1, 2, 3])
 
 #
 # O(n) Linear
-
 
 
 def func_lin(lst):
@@ -90,8 +87,6 @@ def print_once(lst):
     '''
     for val in lst:
         print val
-
-
 
 print_once(lst)
 
