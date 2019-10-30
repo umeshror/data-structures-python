@@ -43,6 +43,20 @@ def nth_to_last_node_sol1(n, head):
 
 
 def nth_to_last_node_sol2(n, head):
+    """
+
+            #   1  2  3  4  5
+    init    LP  .
+    init    RP  .
+
+    i=0     RP     .
+    i=1     RP        .
+    i=2     RP           .
+
+    while
+    next    RP              .
+            LP     .
+    """
     left_pointer = head
     right_pointer = head
 
@@ -63,6 +77,7 @@ def nth_to_last_node_sol2(n, head):
 
     # Now return left pointer, its at the nth to last element!
     return left_pointer.value
+
 
 
 a = Node(1)
