@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from largest_continuous_sum import large_cont_sum_sol
+from arrays.largest_continuous_sum import large_cont_sum_sol
 
 
 class LargeContTest(TestCase):

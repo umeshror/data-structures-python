@@ -1,6 +1,6 @@
 import unittest
 
-from pair_sum import pair_sum_sol1
+from arrays.pair_sum import pair_sum_sol1
 
 
 class TestPair(unittest.TestCase):

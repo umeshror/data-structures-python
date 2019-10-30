@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from unique_character import uni_char_sol1
+from arrays.unique_character import uni_char_sol1
 
 
 class TestUnique(TestCase):

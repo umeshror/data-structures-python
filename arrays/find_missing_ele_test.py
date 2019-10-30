@@ -1,6 +1,6 @@
 import unittest
 
-from find_missing_ele import finder_sol1
+from arrays.find_missing_ele import finder_sol1
 
 
 class TestFinder(unittest.TestCase):
