@@ -6,9 +6,11 @@ class Queue(object):
         return self.items == []
 
     def enqueue(self, item):
+        # add it at the start
         self.items.insert(0, item)
 
     def dequeue(self):
+        # remove it from end
         return self.items.pop()
 
     def size(self):
