@@ -10,7 +10,20 @@ Iteratively
 """
 
 
-def fib_rec(n):
+def fib_iterative(n):
+    # starting point
+    a = 0
+    b = 1
+
+    # Follow algorithm
+    for i in range(n):
+        a, b = b, a + b
+
+    return a
+
+print(fib_iterative(3))
+
+def fib_recursion(n):
     """
 
     fib_rec(n)  = fib_rec(n - 1) + fib_rec(n - 2)
@@ -27,7 +40,7 @@ def fib_rec(n):
     if n == 0 or n == 1:
         return n
 
-    return fib_rec(n - 1) + fib_rec(n - 2)
+    return fib_recursion(n - 1) + fib_recursion(n - 2)
 
 
-print(fib_rec(3))
+print(fib_recursion(3))
