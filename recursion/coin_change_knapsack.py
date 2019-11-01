@@ -19,19 +19,22 @@ With 1 coin being the minimum amount.
 import sys
 
 
-def coin_change(target, coins):
+def coin_change(target, coins, cache=None):
     """
     INPUT: Target change amount and list of coin values
     OUTPUT: Minimum coins needed to make change
-
-    Note, this solution is not optimized.
     """
+    if not cache:
+        cache = {}
 
+    if cache.get(target):
+        return cache[target]
     # Default to target value
     min_coins = sys.maxsize
 
     # Check to see if we have a single coin match (BASE CASE)
     if target in coins:
+        cache[target] = 1
         return 1
 
     else:
@@ -41,11 +44,12 @@ def coin_change(target, coins):
         for coin in valid_coins:
             # Recursive Call (add a count coin and subtract from the target)
             updated_target = target - coin
-            num_coins = 1 + coin_change(updated_target, valid_coins)
+            num_coins = 1 + coin_change(updated_target, valid_coins, cache)
 
             # Reset Minimum if we have a new minimum
             min_coins = min(num_coins, min_coins)
+            cache[target] = min_coins
     return min_coins
 
 
-print coin_change(6, [1, 5, 10, 25])
+print coin_change(63,[1,5,10,25])
