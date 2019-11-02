@@ -70,3 +70,33 @@ class Node(object):
             self.left_child.parent = self
         if self.right_child:
             self.right_child.parent = self
+
+    def splice_out(self):
+        """
+        Splices out the node from tree and assign its childs to parent
+        :return:
+        """
+        # if node is leaf node then remove its entry from its parent
+        if self.is_leaf():
+            if self.is_left_child():
+                self.parent.left_child = None
+            else:
+                self.parent.right_child = None
+        # if it has any children then assign those children to parent
+        elif self.has_any_children():
+            if self.left_child:
+                if self.is_left_child():
+                    self.parent.left_child = self.left_child
+                else:
+
+                    self.parent.right_child = self.left_child
+                    self.left_child.parent = self.parent
+        else:
+            if self.is_left_child():
+
+                self.parent.left_child = self.right_child
+            else:
+                self.parent.right_child = self.right_child
+                self.right_child.parent = self.parent
+
+
