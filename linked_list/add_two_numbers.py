@@ -10,6 +10,7 @@ Example:
 Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
 Output: 7 -> 0 -> 8
 Explanation: 342 + 465 = 807.
+Explanation: 342 + 065 = 807.
 """
 
 
@@ -19,7 +20,7 @@ class Node(object):
         self.next = None
 
 
-def addTwoNumbers(l1, l2, carry=0):
+def add_two_numbers(l1, l2, carry=0):
     """
     :type l1: Node
     :type l2: Node
@@ -35,9 +36,19 @@ def addTwoNumbers(l1, l2, carry=0):
             l1.next = Node(0)
         if l2.next == None:
             l2.next = Node(0)
-        final_ll.next = addTwoNumbers(l1.next, l2.next, carry)
+        final_ll.next = add_two_numbers(l1.next, l2.next, carry)
 
     return final_ll
+
+
+def print_list(head):
+    data = []
+    temp = head
+    while temp:
+        data.append(temp.val)
+        temp = temp.next
+    return data
+
 
 l1 = Node(2)
 node2 = Node(4)
@@ -53,5 +64,6 @@ node3 = Node(4)
 l2.next = node2
 node2.next = node3
 
-addTwoNumbers(l1, l2)
+fl = add_two_numbers(l1, l2)
 
+print_list(fl)
