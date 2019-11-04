@@ -41,7 +41,7 @@ def add_two_numbers(l1, l2, carry=0):
     return final_ll
 
 
-def print_list(head):
+def traverse_list(head):
     data = []
     temp = head
     while temp:
@@ -66,4 +66,4 @@ node2.next = node3
 
 fl = add_two_numbers(l1, l2)
 
-print_list(fl)
+traverse_list(fl)
