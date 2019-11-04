@@ -48,3 +48,21 @@ class TestAddTwoNumbers(unittest.TestCase):
         final_ll = add_two_numbers(l1, l2)
 
         self.assertEqual(traverse_list(final_ll), [0, 1])
+
+    def test_4(self):
+        l1 = Node(5)
+
+        l2 = Node(5)
+
+        final_ll = add_two_numbers(l1, l2)
+
+        self.assertEqual(traverse_list(final_ll), [0, 1])
+
+    def test_5(self):
+        l1 = Node(5)
+
+        l2 = Node(0)
+
+        final_ll = add_two_numbers(l1, l2)
+
+        self.assertEqual(traverse_list(final_ll), [5])
