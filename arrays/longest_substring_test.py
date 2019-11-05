@@ -10,3 +10,5 @@ class LongestSubStrTest(TestCase):
         self.assertEqual(length_of_longest_substring("dvdf"), 3)
         self.assertEqual(length_of_longest_substring("ynyo"), 3)
         self.assertEqual(length_of_longest_substring("abcabcbb"), 3)
+        self.assertEqual(length_of_longest_substring("aaaa"), 1)
+        self.assertEqual(length_of_longest_substring("aaaabbbbbb"), 2)
