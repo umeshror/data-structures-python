@@ -28,5 +28,6 @@ def selection_sort_max(arr):
         temp = arr[i]
         arr[i] = arr[max_value_ind]
         arr[max_value_ind] = temp
+    return arr
 
 print(selection_sort_max([2, 324, 6]))
