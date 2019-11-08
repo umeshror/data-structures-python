@@ -1,8 +1,9 @@
-def selection_sort(arr):
+def selection_sort_min(arr):
     for i in range(len(arr)):
         min_value_ind = i
-        j = 0
-        for j in range(i + 1, len(arr) - j):
+
+        for j in range(i + 1, len(arr)):
+
             if arr[j] < arr[min_value_ind]:
                 min_value_ind = j
             j += 1
@@ -10,4 +11,22 @@ def selection_sort(arr):
     return arr
 
 
-selection_sort([2, 324, 6])
+print(selection_sort_min([2, 324, 6]))
+
+
+def selection_sort_max(arr):
+    # For every slot in array
+    for i in range(len(arr) - 1, 0, -1):
+        max_value_ind = 0
+
+        # For every set of 0 to i+1
+        for j in range(1, i + 1):
+            # Set maximum's j
+            if arr[j] > arr[max_value_ind]:
+                max_value_ind = j
+
+        temp = arr[i]
+        arr[i] = arr[max_value_ind]
+        arr[max_value_ind] = temp
+
+print(selection_sort_max([2, 324, 6]))
