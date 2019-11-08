@@ -1,4 +1,4 @@
-def bubble_sort_sol1(arr):
+def bubble_sort(arr):
     i = 0
     while i < len(arr):
         j = 0
@@ -11,4 +11,4 @@ def bubble_sort_sol1(arr):
     return arr
 
 
-print bubble_sort_sol1([12, 43, 123, -34, 0, 1, 58, 12, 46, 768, 23])
+print bubble_sort([12, 43, 123, -34, 0, 1, 58, 12, 46, 768, 23])
