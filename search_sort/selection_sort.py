@@ -30,4 +30,23 @@ def selection_sort_max(arr):
         arr[max_value_ind] = temp
     return arr
 
+
 print(selection_sort_max([2, 324, 6]))
+
+
+def selection_sort_max_sol2(arr):
+    i = 0
+    while i < len(arr):
+        max_value_ind = 0
+        j = 0
+        while j < len(arr) - i:
+            if arr[j] > arr[max_value_ind]:
+                max_value_ind = j
+            j += 1
+        arr[max_value_ind], arr[j - 1] = arr[j - 1], arr[max_value_ind]
+
+        i += 1
+    return arr
+
+
+print(selection_sort_max_sol2([2, 324, 6]))
