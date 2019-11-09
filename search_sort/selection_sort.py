@@ -35,6 +35,15 @@ print(selection_sort_max([2, 324, 6]))
 
 
 def selection_sort_max_sol2(arr):
+    """
+    max_ind    2, 324, 6, 22
+     2:234     2, 22, 6, 324
+     1:22      2, 6, 22, 324
+     1:6       2, 6, 22, 324
+     0:2       2, 6, 22, 324
+    :param arr:
+    :return:
+    """
     i = 0
     while i < len(arr):
         max_value_ind = 0
@@ -48,5 +57,4 @@ def selection_sort_max_sol2(arr):
         i += 1
     return arr
 
-
-print(selection_sort_max_sol2([2, 324, 6]))
+print(selection_sort_max_sol2([2, 324, 6, 22]))
