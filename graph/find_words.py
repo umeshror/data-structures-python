@@ -29,8 +29,6 @@ def word_seek(grid, words):
     founds = []
 
     for word in words:
-        if word=="DAREDEVIL":
-            x= 2
         found = False
         for i in range(0, len(grid)):
             for j in range(0, len(grid[i])):
