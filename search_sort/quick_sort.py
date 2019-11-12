@@ -18,6 +18,7 @@ def quick_sort_sol1(arr):
 
 
 arr = [11,2,5,4,7,6,8,1,23]
+arr = [7, 6, 10, 5, 9, 2, 1, 15, 7]
 print quick_sort_sol1(arr)
 
 
@@ -43,3 +44,35 @@ def quick_sort_sol2(array, start_ind=0, end_ind=None):
     return array
 
 print quick_sort_sol2(arr)
+
+
+def partition_sol_3(array, start_ind, end_ind):
+    pivot_ind = start_ind
+    pivot = array[pivot_ind]
+
+    while start_ind < end_ind:
+
+        while arr[start_ind] <= pivot:
+            start_ind += 1
+
+        while arr[end_ind] > pivot:
+            end_ind -= 1
+
+        if start_ind < end_ind:
+            array[start_ind], array[end_ind] = array[end_ind], array[start_ind]
+    # array[pivot_ind], array[end_ind] = array[end_ind], array[pivot_ind]
+    return end_ind
+
+
+
+def quick_sort_sol3(array, start_ind=0, end_ind=None):
+    if end_ind is None:
+        end_ind = len(array) - 1
+    if start_ind >= end_ind:
+        return
+    pivot_ind = partition_sol_3(array, start_ind, end_ind)
+    quick_sort_sol3(array, start_ind, pivot_ind-1)
+    quick_sort_sol3(array, pivot_ind+1, end_ind)
+    return array
+
+print quick_sort_sol3(arr)
