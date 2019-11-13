@@ -76,3 +76,4 @@ def quick_sort_sol3(array, start_ind=0, end_ind=None):
     return array
 
 print quick_sort_sol3(arr)
+
