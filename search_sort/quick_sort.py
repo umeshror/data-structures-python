@@ -17,7 +17,6 @@ def quick_sort_sol1(arr):
 
 
 
-arr = [11,2,5,4,7,6,8,1,23]
 arr = [7, 6, 10, 5, 9, 2, 1, 15, 7]
 print quick_sort_sol1(arr)
 
@@ -43,6 +42,7 @@ def quick_sort_sol2(array, start_ind=0, end_ind=None):
     quick_sort_sol2(array, pivot_ind+1, end_ind)
     return array
 
+arr = [11,2,5,4,7,6,8,1,23]
 print quick_sort_sol2(arr)
 
 
