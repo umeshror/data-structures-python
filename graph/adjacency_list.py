@@ -21,9 +21,6 @@ class Vertex(object):
         """
         return self.connected_to.keys()
 
-    def get_key(self):
-        return self.key
-
     def get_weight(self, neighbor):
         """
         :param neighbor: Neighbor Vertex
@@ -44,8 +41,6 @@ class Graph(object):
     def get_vertex(self, key):
         if key in self.vertices:
             return self.vertices[key]
-        else:
-            return None
 
     def __contains__(self, n):
         return n in self.vertices
