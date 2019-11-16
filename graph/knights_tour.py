@@ -49,5 +49,4 @@ print(k.start_knight_tour())
 [51, 46, 55, 44, 53, 4, 21, 12]
 True
 
-
 """
