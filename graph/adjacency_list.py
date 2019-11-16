@@ -26,7 +26,7 @@ class Vertex(object):
         :param neighbor: Neighbor Vertex
         :return: weight from current Vertex to neighbor Vertex
         """
-        return self.connected_to[neighbor]
+        return self.connected_to.get(neighbor)
 
 
 class Graph(object):
@@ -39,8 +39,7 @@ class Graph(object):
         return vertex
 
     def get_vertex(self, key):
-        if key in self.vertices:
-            return self.vertices[key]
+        return self.vertices.get(key)
 
     def __contains__(self, n):
         return n in self.vertices
@@ -69,3 +68,42 @@ for vertex in g:
     print vertex
     print vertex.get_connections()
     print '\n'
+
+
+
+class Graph2(object):
+    """
+    Without Vertex class dependency
+    """
+    def __init__(self):
+        self.vertices = {}
+
+    def add_vertex(self, key):
+        self.vertices[key] = {}
+
+    def get_vertex(self, key):
+        return self.vertices.get(key)
+
+    def __contains__(self, n):
+        return n in self.vertices
+
+    def add_edge(self, _from, _to, cost=0):
+        if _from not in self.vertices:
+            self.vertices[_from] = {}
+        self.vertices[_from][_to] = cost
+
+    def get_vertices(self):
+        return self.vertices.keys()
+
+    def __iter__(self):
+        return iter(self.vertices.values())
+
+g = Graph2()
+
+for i in range(6):
+    g.add_vertex(i)
+
+g.add_edge(0,1,2)
+g.add_edge(2,3,5)
+for vertex in g:
+    print vertex
