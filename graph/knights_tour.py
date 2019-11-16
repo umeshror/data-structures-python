@@ -5,6 +5,7 @@ class KnightTour(object):
     def __init__(self, dimension):
         self.dimension = dimension
         self.chess_board = [[-1] * self.dimension for x in range(dimension)]
+        self.steps_taken = 0
 
     def is_valid_move(self, i, j):
         if 0 <= i < self.dimension and 0 <= j < self.dimension:
@@ -12,28 +13,28 @@ class KnightTour(object):
                 return True
         return False
 
-    def knight_tour(self, i, j, steps_taken):
-        if steps_taken == self.dimension * self.dimension:
+    def knight_tour(self, i, j):
+        if self.steps_taken + 1 == self.dimension * self.dimension:
             return True
         for move in self.moves:
             next_i = i + move[0]
             next_j = j + move[1]
 
             if self.is_valid_move(next_i, next_j):
-                self.chess_board[next_i][next_j] = steps_taken
-                if self.knight_tour(next_i, next_j, steps_taken + 1):
+                self.steps_taken += 1
+                self.chess_board[next_i][next_j] = self.steps_taken
+                if self.knight_tour(next_i, next_j):
                     return True
-                # self.chess_board[next_i][next_j] = -1  # backtracking
-
         return False
 
     def start_knight_tour(self, i=0, j=0):
         steps_taken = 0
         self.chess_board[i][j] = steps_taken
-        tour_finished = self.knight_tour(i, j, steps_taken+1)
+        tour_finished = self.knight_tour(i, j)
         for row in self.chess_board:
             print(row)
         return tour_finished
+
 
 k = KnightTour(8)
 print(k.start_knight_tour())
