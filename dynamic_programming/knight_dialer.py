@@ -25,6 +25,8 @@ f(0, N) + f(1, N) + ... + f(9, N) = sum(dp)
 
 
 def knight_dialer(N):
+    if N == 0:
+        return 0
     possible_moves = [[4, 6], [6, 8], [7, 9], [4, 8], [3, 9, 0], [],
                       [1, 7, 0], [2, 6], [1, 3], [2, 4]]
     # if N is 1, knight can dial only one number in 10 ways
