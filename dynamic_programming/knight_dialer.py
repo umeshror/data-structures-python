@@ -25,21 +25,23 @@ f(0, N) + f(1, N) + ... + f(9, N) = sum(dp)
 
 
 def knight_dialer(N):
-    # from 1 we can go to [4, 6]
-    # from 2 we can go to [6, 8] and so on...
-    moves = [[4, 6], [6, 8], [7, 9], [4, 8], [3, 9, 0], [],
-             [1, 7, 0], [2, 6], [1, 3], [2, 4]]
+    possible_moves = [[4, 6], [6, 8], [7, 9], [4, 8], [3, 9, 0], [],
+                      [1, 7, 0], [2, 6], [1, 3], [2, 4]]
+    # if N is 1, knight can dial only one number in 10 ways
+    total_numbers_dialed = [1] * 10
 
-    total_hops_from = [1] * 10
+    for hop in range(N - 1):
+        # hops to take in this jump
+        moves = [0] * 10
+        for dial_from, dial_count in enumerate(total_numbers_dialed):
+            # possible numbers to dial from given dial number
+            moves_to_take = possible_moves[dial_from]
 
-    for hops in range(N - 1):
-        hops_taken = [0] * 10
-        for _from, count in enumerate(total_hops_from):
-            for _to in moves[_from]:
-                hops_taken[_to] += count
-        total_hops_from = hops_taken
+            for dial_to in moves_to_take:
+                moves[dial_to] += dial_count
 
-    return sum(total_hops_from)
+        total_numbers_dialed = moves
 
+    return sum(total_numbers_dialed)
 
-print knight_dialer(4)
+print(knight_dialer(4))
