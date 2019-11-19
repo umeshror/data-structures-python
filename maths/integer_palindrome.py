@@ -41,12 +41,17 @@ print(is_palindrome_sol1(-122))
 print(is_palindrome_sol1(122))
 print(is_palindrome_sol1(121))
 
+
 def is_palindrome_sol2(number):
     """
     :param number: integer : -123
     :return: True/False
     """
-    return str(number) == str(number)[::-1]
+    if number < 0:
+        return False
+    number = str(number)
+    return number == number[::-1]
+
 
 print(is_palindrome_sol2(-121))
 print(is_palindrome_sol2(-122))
