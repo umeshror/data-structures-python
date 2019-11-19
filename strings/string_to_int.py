@@ -19,7 +19,7 @@ Input: "-91283472332"
 Output: -2147483648
 
 """
-def atoi(strng):
+def strng_to_int(strng):
     strng = strng.strip()
     if len(strng) == 0:
         return 0
@@ -40,7 +40,7 @@ def atoi(strng):
     if (out.bit_length() >= 32):
         return (2 ** 31 - 1) if out > 0 else -2 ** 31
     return out
-print(atoi( "   -42l knj;nuvk"))
-print(atoi("+"))
-print(atoi(""))
-print(atoi("+-"))
+print(strng_to_int( "   -42l knj;nuvk"))
+print(strng_to_int("+"))
+print(strng_to_int(""))
+print(strng_to_int("+-"))
