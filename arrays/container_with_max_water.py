@@ -27,3 +27,26 @@ def find_max_area(arr):
 print(find_max_area([1, 8, 6, 2, 5, 4, 8, 3, 7]))
 print(find_max_area([1, 1]))
 print(find_max_area([2, 1]))
+
+
+def find_max_area_sol2(arr):
+    max_area = 0
+    start = 0
+    end = len(arr) - 1
+    while start != end:
+        s = arr[start]
+        e = arr[end]
+        height = min(arr[start], arr[end])
+        width = end - start
+        area = height * width
+        max_area = max(max_area, area)
+        if arr[start] > arr[end]:
+            end -= 1
+        else:
+            start += 1
+    return max_area
+
+
+print(find_max_area_sol2([1, 8, 6, 2, 5, 4, 8, 3, 7]))
+print(find_max_area_sol2([1, 1]))
+print(find_max_area_sol2([2, 1]))
