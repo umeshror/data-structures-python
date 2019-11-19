@@ -24,7 +24,7 @@ P     I
 import collections
 
 
-def convert(s, num_rows):
+def convert_sol1(s, num_rows):
     char_map = collections.defaultdict(str)
     row = 0
     step = 1
@@ -43,4 +43,30 @@ def convert(s, num_rows):
     return out
 
 
-print(convert("PAYPALISHIRING", 4))
+print(convert_sol1("PAYPALISHIRING", 4))
+
+
+def convert_sol2(s, num_rows):
+    """
+    :type s: str
+    :type numRows: int
+    :rtype: str
+    """
+
+    if num_rows == 1 or num_rows >= len(s):
+        return s
+    row = 0
+    step = 0
+    out = [""] * num_rows
+    for char in s:
+        # increment/decrement row by step,
+        # increment until reaches to num_rows then decrement until reaches to first row
+        out[row] += char
+        if row == num_rows - 1:
+            step = -1
+        elif row == 0:
+            step = 1
+        row += step
+    return "".join(out)
+
+print(convert_sol2("PAYPALISHIRING", 4))
