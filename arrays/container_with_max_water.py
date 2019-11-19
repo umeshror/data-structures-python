@@ -34,8 +34,6 @@ def find_max_area_sol2(arr):
     start = 0
     end = len(arr) - 1
     while start != end:
-        s = arr[start]
-        e = arr[end]
         height = min(arr[start], arr[end])
         width = end - start
         area = height * width
