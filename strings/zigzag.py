@@ -1,5 +1,5 @@
 """
-The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this: 
+The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this:
 (you may want to display this pattern in a fixed font for better legibility)
 
 P   A   H   N
@@ -24,7 +24,7 @@ P     I
 import collections
 
 
-def convert_sol1(s, num_rows):
+def zigzag_sol1(s, num_rows):
     char_map = collections.defaultdict(str)
     row = 0
     step = 1
@@ -43,10 +43,10 @@ def convert_sol1(s, num_rows):
     return out
 
 
-print(convert_sol1("PAYPALISHIRING", 4))
+print(zigzag_sol1("PAYPALISHIRING", 4))
 
 
-def convert_sol2(s, num_rows):
+def zigzag_sol2(s, num_rows):
     """
     :type s: str
     :type numRows: int
@@ -69,4 +69,4 @@ def convert_sol2(s, num_rows):
         row += step
     return "".join(out)
 
-print(convert_sol2("PAYPALISHIRING", 4))
+print(zigzag_sol2("PAYPALISHIRING", 4))
