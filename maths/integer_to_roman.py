@@ -73,3 +73,22 @@ print(integer_to_roman(4))
 print(integer_to_roman(8))
 print(integer_to_roman(58))
 
+
+def integer_to_roman_sol2(num):
+    M = ["", "M", "MM", "MMM"]
+    C = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"]
+    X = ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"]
+    I = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"]
+    first_digit = num // 1000
+    second_digit = (num % 1000) // 100
+    third_digit = (num % 100) // 10
+    fourth_digit = num % 10
+    return M[first_digit] + C[second_digit] + X[third_digit] + I[fourth_digit]
+
+
+print(integer_to_roman_sol2(3))
+print(integer_to_roman_sol2(4))
+print(integer_to_roman_sol2(8))
+print(integer_to_roman_sol2(58))
+print(integer_to_roman_sol2(588))
+print(integer_to_roman_sol2(3999))
