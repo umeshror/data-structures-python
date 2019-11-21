@@ -42,23 +42,24 @@ Input: 1994
 Output: "MCMXCIV"
 Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 """
+from collections import OrderedDict
 
 
 def integer_to_roman(number):
-    roman_map = {1000: 'M',
-                 900: 'CM',
-                 500: 'D',
-                 400: 'CD',
-                 100: 'C',
-                 90: 'XC',
-                 50: 'L',
-                 40: 'XL',
-                 10: 'X',
-                 9: 'IX',
-                 5: 'V',
-                 4: 'IV',
-                 1: 'I'}
-
+    roman_map = OrderedDict([(1000, 'M'),
+                             (900, 'CM'),
+                             (500, 'D'),
+                             (400, 'CD'),
+                             (100, 'C'),
+                             (90, 'XC'),
+                             (50, 'L'),
+                             (40, 'XL'),
+                             (10, 'X'),
+                             (9, 'IX'),
+                             (5, 'V'),
+                             (4, 'IV'),
+                             (1, 'I')
+                             ])
     out = ""
     for key in roman_map:
         while number >= key:
@@ -72,16 +73,3 @@ print(integer_to_roman(4))
 print(integer_to_roman(8))
 print(integer_to_roman(58))
 
-
-def integer_to_roman_sol2(num):
-    M = ["", "M", "MM", "MMM"]
-    C = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"]
-    X = ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"]
-    I = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"]
-    return M[num / 1000] + C[(num % 1000) / 100] + X[(num % 100) / 10] + I[num % 10]
-
-
-print(integer_to_roman(3))
-print(integer_to_roman(4))
-print(integer_to_roman(8))
-print(integer_to_roman(58))
