@@ -30,6 +30,27 @@ def longest_common_prefix(strngs):
     return out
 
 
-print(longest_common_prefix(["flower", "flow", "flight"]))
+print(longest_common_prefix(["flower", "flow", "flight", "flll", ""]))
 print(longest_common_prefix([]))
 print(longest_common_prefix(["a"]))
+
+
+def longest_common_prefix_sol2(strngs):
+    if not strngs:
+        return ""
+    if len(strngs) == 1:
+        return strngs[0]
+
+    strngs.sort()
+    out = ""
+    for x, y in zip(strngs[0], strngs[-1]):
+        if x == y:
+            out += x
+        else:
+            break
+    return out
+
+
+print(longest_common_prefix_sol2(["flower", "flow", "flight", "flll", ""]))
+print(longest_common_prefix_sol2([]))
+print(longest_common_prefix_sol2(["a"]))
