@@ -54,3 +54,13 @@ def longest_common_prefix_sol2(strngs):
 print(longest_common_prefix_sol2(["flower", "flow", "flight", "flll", ""]))
 print(longest_common_prefix_sol2([]))
 print(longest_common_prefix_sol2(["a"]))
+
+
+def longest_common_prefix_sol3(strngs):
+    out = ""
+    zipp = zip(*strngs)
+    for char_tup in zipp:
+        if len(set(char_tup)) > 1:
+            break
+        out += char_tup[0]
+    return out
