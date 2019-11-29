@@ -26,6 +26,7 @@ def find_combinations(digits):
     Take 1 char and do recursion to its end
     Apply this to all chars numbers.
     """
+
     NUM_MAP = {
         "2": ["a", "b", "c"],
         "3": ["d", "e", "f"],
@@ -36,6 +37,8 @@ def find_combinations(digits):
         "8": ["t", "u", "v"],
         "9": ["w", "x", "y", "z"]
     }
+    if not digits or digits in "01" or not digits.isdigit():
+        return []
     out = []
 
     def combine_chars(strng_out, remain_digits):
@@ -50,10 +53,9 @@ def find_combinations(digits):
             # get the remain strng for leftover digits
             combine_chars(strng, remain_digits[1:])
 
-    if not digits:
-        return []
+
     combine_chars("", digits)
     return out
 
 
-print(find_combinations("23"))
+print(find_combinations("1"))
