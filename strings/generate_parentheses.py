@@ -16,7 +16,7 @@ For example, given n = 3, a solution set is:
 def generate_parentheses(n):
     res = []
     def paren(left, right, curr):
-        # 'evaluate current string
+        # evaluate current string
         # if we are out of brackets to add, we must be at a valid string
         if left == 0 and right == 0:
             res.append(curr)
