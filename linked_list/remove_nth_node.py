@@ -45,7 +45,7 @@ def traverse_list(head):
 
 def remove_nth_frm_end(head, n):
     """
-    2 pointer
+    2 pointer algo
     :type head: ListNode
     :type n: int
     :rtype: ListNode
@@ -54,16 +54,16 @@ def remove_nth_frm_end(head, n):
     tmp.next = head
 
     pointer_1 = tmp
-    pointer_2 = head
+    pointer_2 = tmp
 
     # Move over n nodes including dummy
-    for i in range(n - 1):
+    for i in range(n):
         pointer_2 = pointer_2.next  # set pointer_2 to n-1 th
 
     # Increment ptrs till you reach end of list
     while pointer_2.next:
-        pointer_1, pointer_2 = pointer_1.next, pointer_2.next
-
+        pointer_1 = pointer_1.next
+        pointer_2 = pointer_2.next
     # Now pointer_1.next points to the nth node from the end
     pointer_1.next = pointer_1.next.next
 
