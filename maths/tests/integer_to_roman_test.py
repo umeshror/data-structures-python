@@ -19,3 +19,4 @@ class IntegerToRomanTest(TestCase):
         self.assertEqual(integer_to_roman_sol2(58), "LVIII")
         self.assertEqual(integer_to_roman_sol2(588), "DLXXXVIII")
         self.assertEqual(integer_to_roman_sol2(3999), "MMMCMXCIX")
+        self.assertEqual(integer_to_roman_sol2(1), "I")

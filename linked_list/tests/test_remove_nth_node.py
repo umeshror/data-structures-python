@@ -18,3 +18,8 @@ class TestRemoveNthNode(unittest.TestCase):
         arr1 = generate_nodes([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
         out = remove_nth_frm_end(arr1, 7)
         self.assertEqual(traverse_list(out), [1, 2, 3, 5, 6, 7, 8, 9, 10])
+
+    def test_4(self):
+        arr1 = generate_nodes([1, 2, 3, 4])
+        out = remove_nth_frm_end(arr1, 4)
+        self.assertEqual(traverse_list(out), [2, 3, 4])
