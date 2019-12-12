@@ -7,36 +7,31 @@ c = Node(3)
 d = Node(4)
 e = Node(5)
 
-a.next_node = b
-b.next_node = c
-c.next_node = d
-d.next_node = e
+a.nex = b
+b.nex = c
+c.nex = d
+d.nex = e
 
 # This would return the node d with a value of 4, because its the 2nd to last node.
 target_node = nth_to_last_node(2, a)
 target_node.value
 4
 """
-
-
-class Node(object):
-    def __init__(self, value):
-        self.value = value
-        self.next_node = None
+from linked_list.LinkedList import Node
 
 
 def nth_to_last_node_sol1(n, head):
     count = 1
     current_node = head
 
-    while current_node.next_node:
+    while current_node.nex:
         count += 1
-        current_node = current_node.next_node
+        current_node = current_node.nex
     value_index = count - n
 
     current_node = head
     while value_index:
-        current_node = current_node.next_node
+        current_node = current_node.nex
         value_index -= 1
 
     return current_node.value
@@ -64,16 +59,16 @@ def nth_to_last_node_sol2(n, head):
     for i in xrange(n - 1):
 
         # Check for edge case of not having enough nodes!
-        if not right_pointer.next_node:
+        if not right_pointer.nex:
             raise LookupError('Error: n is larger than the linked list.')
 
         # Otherwise, we can set the block
-        right_pointer = right_pointer.next_node
+        right_pointer = right_pointer.nex
 
     # Move the block down the linked list
-    while right_pointer.next_node:
-        left_pointer = left_pointer.next_node
-        right_pointer = right_pointer.next_node
+    while right_pointer.nex:
+        left_pointer = left_pointer.nex
+        right_pointer = right_pointer.nex
 
     # Now return left pointer, its at the nth to last element!
     return left_pointer.value
@@ -87,9 +82,9 @@ d = Node(4)
 e = Node(5)
 # 1 2 3 4 5
 
-a.next_node = b
-b.next_node = c
-c.next_node = d
-d.next_node = e
+a.nex = b
+b.nex = c
+c.nex = d
+d.nex = e
 print nth_to_last_node_sol1(4, a)
 print nth_to_last_node_sol2(4, a)
