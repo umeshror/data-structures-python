@@ -12,12 +12,7 @@ Output: 7 -> 0 -> 8
 Explanation: 342 + 465 = 807.
 Explanation: 342 + 065 = 807.
 """
-
-
-class Node(object):
-    def __init__(self, val):
-        self.val = val
-        self.next = None
+from linked_list.LinkedList import traverse_list, Node
 
 
 def add_two_numbers(l1, l2, carry=0):
@@ -41,15 +36,6 @@ def add_two_numbers(l1, l2, carry=0):
     return final_ll
 
 
-def traverse_list(head):
-    data = []
-    temp = head
-    while temp:
-        data.append(temp.val)
-        temp = temp.next
-    return data
-
-
 l1 = Node(2)
 node2 = Node(4)
 node3 = Node(3)
@@ -66,4 +52,4 @@ node2.next = node3
 
 fl = add_two_numbers(l1, l2)
 
-traverse_list(fl)
+print(traverse_list(fl))
