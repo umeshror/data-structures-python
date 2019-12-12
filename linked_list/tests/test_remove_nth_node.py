@@ -1,6 +1,8 @@
 import unittest
 
-from linked_list.remove_nth_node import remove_nth_frm_end, generate_nodes, traverse_list
+from linked_list.LinkedList import generate_nodes
+from linked_list.add_two_numbers import traverse_list
+from linked_list.remove_nth_node import remove_nth_frm_end
 
 
 class TestRemoveNthNode(unittest.TestCase):
