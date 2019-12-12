@@ -11,36 +11,7 @@ Note:
 Given n will always be valid.
 
 """
-
-
-class ListNode(object):
-    def __init__(self, x):
-        self.val = x
-        self.next = None
-
-    def __str__(self):
-        return str(self.val)
-
-
-def generate_nodes(arr):
-    """
-    :param arr: List of values
-    :return: Head of Linked List
-    """
-    node = ListNode(arr[0])
-    head = node
-    for item in arr[1:]:
-        node.next = ListNode(item)
-        node = node.next
-    return head
-
-
-def traverse_list(head):
-    data = []
-    while head:
-        data.append(head.val)
-        head = head.next
-    return data
+from linked_list.LinkedList import Node, generate_nodes, traverse_list
 
 
 def remove_nth_frm_end(head, n):
@@ -50,7 +21,7 @@ def remove_nth_frm_end(head, n):
     :type n: int
     :rtype: ListNode
     """
-    tmp = ListNode(-1)
+    tmp = Node(-1)
     tmp.next = head
 
     pointer_1 = tmp
