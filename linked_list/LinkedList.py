@@ -12,6 +12,8 @@ def generate_nodes(arr):
     :param arr: List of values
     :return: Head of Linked List
     """
+    if not arr:
+        return arr
     node = Node(arr[0])
     head = node
     for item in arr[1:]:
