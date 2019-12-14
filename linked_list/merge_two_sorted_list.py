@@ -6,11 +6,10 @@ Example:
 Input: 1->2->4, 1->3->4
 Output: 1->1->2->3->4->4
 """
-from linked_list.LinkedList import generate_nodes, traverse_list
+from linked_list.LinkedList import generate_nodes, traverse_list, Node
 
 head_1 = generate_nodes([1, 2, 4])
 head_2 = generate_nodes([1, 3, 4])
-
 
 
 def merge_two_lists(l1, l2):
@@ -28,5 +27,22 @@ def merge_two_lists(l1, l2):
     else:
         l2.next = merge_two_lists(l1, l2.next)
         return l2
+
+
 o = merge_two_lists(head_1, head_2)
 print(traverse_list(o))
+
+
+# iteratively
+def merge_two_lists_sol2(self, l1, l2):
+    dummy = cur = Node(0)
+    while l1 and l2:
+        if l1.val < l2.val:
+            cur.next = l1
+            l1 = l1.next
+        else:
+            cur.next = l2
+            l2 = l2.next
+        cur = cur.next
+    cur.next = l1 or l2
+    return dummy.next
