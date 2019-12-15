@@ -15,29 +15,38 @@ For example, given n = 3, a solution set is:
 
 def generate_parentheses(n):
     res = []
-    def paren(left, right, curr):
-        # evaluate current string
-        # if we are out of brackets to add, we must be at a valid string
-        if left == 0 and right == 0:
-            res.append(curr)
-            return
 
-        # recursive call: add either open or close
-        # if adding open bracket is valid
-        if left > 0:
-            # add open bracket, decr count
-            paren(left - 1, right, curr + "(")
-
-        # if adding close bracket is valid
-        if right > left:
-            # add close bracket, decr count
-            paren(left, right - 1, curr + ")")
-
-    # end paren()
-
-    paren(n, n, '')
-
+    dfs(n, n, '', res)
     return res
 
 
+def dfs(left, right, curr, res):
+    """
+    DFS: add either open or close
+
+    2 2 '' []
+    1 2 ( []
+    0 2 (( []
+    0 1 (() []
+    0 0 (()) []
+    1 1 () ['(())']
+    0 1 ()( ['(())']
+    0 0 ()() ['(())']
+    ret ['()()', '(())']
+    """
+    # if we are out of brackets to add then return
+    if left == 0 and right == 0:
+        return res.append(curr)
+
+    # add open bracket, decr left
+    if left > 0:
+        dfs(left - 1, right, curr + "(", res)
+
+    # add close bracket, decr right
+    if right > left:
+        dfs(left, right - 1, curr + ")", res)
+
+
 print(generate_parentheses(2))
+
+
