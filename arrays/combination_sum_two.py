@@ -1,15 +1,15 @@
 """
-Given a collection of candidate numbers (candidates) and a target number (target),
- find all unique combinations in candidates where the candidate numbers sums to target.
+Given a collection of candidate numbers (nums) and a target number (target),
+ find all unique combinations in nums where the candidate numbers sums to target.
 
-Each number in candidates may only be used once in the combination.
+Each number in nums may only be used once in the combination.
 
 Note:
 
 All numbers (including target) will be positive integers.
 The solution set must not contain duplicate combinations.
 
-Input: candidates = [10,1,2,7,6,1,5], target = 8,
+Input: nums = [10,1,2,7,6,1,5], target = 8,
 A solution set is:
 [
   [1, 7],
@@ -18,7 +18,7 @@ A solution set is:
   [1, 1, 6]
 ]
 
-Input: candidates = [2,5,2,1,2], target = 5,
+Input: nums = [2,5,2,1,2], target = 5,
 A solution set is:
 [
   [1,2,2],
@@ -27,34 +27,26 @@ A solution set is:
 """
 
 
-def combination_sum(nums, target):
+def combination_sum(candidates, target):
     """
     :param nums: List of +ve ints: [10,1,2,7,6,1,5]
     :param target: INT: 8
     """
-    nums.sort()  # [1, 1, 2, 5, 6, 7, 10]
+    candidates.sort()  # [1, 1, 2, 5, 6, 7, 10]
     out = []
-    dfs(nums, 0, target, [], out)
+    dfs(candidates, target, 0, [], out)
     return out
 
-def dfs(nums, curr_ind, target, path, out):
-    """
-    :param nums:  List of +ve ints
-    :param curr_ind: curr_ind in nums where the pointer is
-    :param target: Target to achieve in this iteration
-    :param path: Path found till now to achieve target
-    :param out: Total paths found for achieving target
-    :return:
-    """
+
+def dfs(candidates, target, index, path, res):
     if target < 0:
-        return
+        return  # backtracking
     if target == 0:
-        out.append(path)
-
-    for i, num in enumerate(nums[curr_ind:]):
-        if i > curr_ind and nums[i-1] == nums[i]:
+        res.append(path)
+        return  # backtracking
+    for i in range(index, len(candidates)):
+        if i > index and candidates[i] == candidates[i - 1]:
             continue
-        dfs(nums[curr_ind:], i+1, target - num, path + [num], out)
-
+        dfs(candidates, target - candidates[i], i + 1, path + [candidates[i]], res)
 print(combination_sum([10,1,2,7,6,1,5], 8))
-#[[1, 1, 6], [1, 2, 5], [1, 7], [2, 6]]
+print(combination_sum([2,5,2,1,2], 5))
