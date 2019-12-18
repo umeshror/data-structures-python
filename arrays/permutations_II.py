@@ -33,7 +33,7 @@ def dfs(arr, path, out):
 
     for i in range(len(arr)):
         # skip to next element as its already handled
-        if len(arr) > 1 and arr[i] == arr[i-1]:
+        if i > 0 and arr[i] == arr[i-1]:
             continue
         dfs(arr[:i] + arr[i + 1:], path + [arr[i]], out)
 print(find_unique_permutations([1, 1, 2]))
