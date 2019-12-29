@@ -38,9 +38,13 @@ def merge_two_lists_sol2(self, l1, l2):
     dummy = cur = Node(0)
     while l1 and l2:
         if l1.val < l2.val:
+            # l2's value is less than l1's so ke
+            # add this value to curr as next element
             cur.next = l1
             l1 = l1.next
         else:
+            # l1's value is less than l2's
+            # add this value to curr as next element
             cur.next = l2
             l2 = l2.next
         cur = cur.next
