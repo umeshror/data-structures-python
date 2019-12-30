@@ -11,22 +11,35 @@ Input:
 ]
 Output: 1->1->2->3->4->4->5->6
 """
+from queue import PriorityQueue
+
 from linked_list.LinkedList import generate_nodes, traverse_list, Node
+
+
+def merge_k_lists(lists):
+    """
+    :type lists: List[ListNode]
+    :rtype: ListNode
+    """
+    head = point = Node(0)
+    q = PriorityQueue()
+    for l in lists:
+        q.put((l.val, id(l), l))
+
+    while not q.empty():
+        # get the lowest from queue
+        val, _id, node = q.get()
+        point.next = Node(val)
+        point = point.next
+        node = node.next
+        if node:
+            q.put((node.val, id(node), node))
+    return head.next
+
 
 head_1 = generate_nodes([1, 4, 5])
 head_2 = generate_nodes([1, 3, 4])
 head_3 = generate_nodes([2, 6])
 
-def mergeKLists(lists):
-    """
-    :type lists: List[ListNode]
-    :rtype: ListNode
-    """
-    l1 = lists[0]
-    l2 = lists[1]
-    if not l1 or not l2:
-        return l1 or l2
-
-    if l1.value > l2.value:
-
-
+o = merge_k_lists([head_1, head_2, head_3])
+print(traverse_list(o))

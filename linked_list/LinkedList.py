@@ -4,7 +4,7 @@ class Node(object):
         self.next = None
 
     def __str__(self):
-        return str(self.val)
+        return "{}, Node({})".format(str(self.val), str(self.next))
 
 
 def generate_nodes(arr):
