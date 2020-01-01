@@ -40,6 +40,7 @@ def merge_k_lists(lists):
 head_1 = generate_nodes([1, 4, 5])
 head_2 = generate_nodes([1, 3, 4])
 head_3 = generate_nodes([2, 6])
+head_4 = generate_nodes([1, 1])
 
-o = merge_k_lists([head_1, head_2, head_3])
+o = merge_k_lists([head_1, head_2, head_3, head_4])
 print(traverse_list(o))
