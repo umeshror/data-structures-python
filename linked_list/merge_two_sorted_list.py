@@ -34,7 +34,7 @@ print(traverse_list(o))
 
 
 # iteratively
-def merge_two_lists_sol2(self, l1, l2):
+def merge_two_lists_sol2(l1, l2):
     dummy = cur = Node(0)
     while l1 and l2:
         if l1.val < l2.val:
@@ -50,3 +50,6 @@ def merge_two_lists_sol2(self, l1, l2):
         cur = cur.next
     cur.next = l1 or l2
     return dummy.next
+
+o = merge_two_lists_sol2(head_1, head_2)
+print(traverse_list(o))
