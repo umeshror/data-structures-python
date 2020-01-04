@@ -19,14 +19,14 @@ def swap_pairs(head):
     :rtype: Node
     """
     t = prev = Node(0)
-    prev.next = head
-    # 0  1 2 3 4
+    prev.next = head  # 0  1 2 3 4
+
     while head and head.next:
-        prev.next = head.next
-        head.next = head.next.next
-        prev.next.next = head
-        head = head.next
-        prev = prev.next.next
+        prev.next = head.next  # 0  2 3 4
+        head.next = head.next.next  # 1  3 4
+        prev.next.next = head  # 0 2  1 3 4
+        head = head.next  # 3 4
+        prev = prev.next.next  # 1 3 4
     return t.next
 
 
