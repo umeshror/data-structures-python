@@ -36,12 +36,12 @@ print(traverse_list(head))
 
 
 def swap_pairs_sol2(head):
-    if head and head.next:
-        tmp = head.next
-        head.next = swap_pairs_sol2(tmp.next)
-        tmp.next = head
-        return tmp
-    return head
+    if not head or not head.next:
+        return head
+    second = head.next
+    head.next = swap_pairs_sol2(second.next)
+    second.next = head
+    return second
 
 
 head = swap_pairs_sol2(head)
