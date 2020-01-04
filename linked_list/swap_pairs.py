@@ -34,12 +34,15 @@ head = generate_nodes([1, 2, 3, 4])
 head = swap_pairs(head)
 print(traverse_list(head))
 
-def swap_pairs_sol2(self, head):
+
+def swap_pairs_sol2(head):
     if head and head.next:
         tmp = head.next
-        head.next = self.swapPairs(tmp.next)
+        head.next = swap_pairs_sol2(tmp.next)
         tmp.next = head
         return tmp
     return head
+
+
 head = swap_pairs_sol2(head)
 print(traverse_list(head))
