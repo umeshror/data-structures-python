@@ -30,13 +30,16 @@ def divide(dividend, divisor):
         sign = -1
 
     dividend, divisor = abs(dividend), abs(divisor)
-    out = 0
-    if dividend >= divisor:
-        while dividend > 0:
-            dividend = dividend - divisor
-            if dividend >= 0:
-                out += 1
-    return sign*out
+    res = 0
+    while dividend >= divisor:
+        tmp = divisor
+        val = 1
+        while dividend >= tmp:
+            res += val
+            dividend -= tmp
+            tmp += tmp
+            val += val
+    return sign * res
 
 
 print(divide(-2147483648, -1))
