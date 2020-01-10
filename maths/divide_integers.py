@@ -30,16 +30,20 @@ def divide(dividend, divisor):
         sign = -1
 
     dividend, divisor = abs(dividend), abs(divisor)
-    res = 0
+
+    quotient = 0
     while dividend >= divisor:
-        tmp = divisor
-        val = 1
-        while dividend >= tmp:
-            res += val
-            dividend -= tmp
-            tmp += tmp
-            val += val
-    return sign * res
+
+        tmp_divisor = divisor
+        tmp_quotient = 1
+
+        while dividend >= tmp_divisor:
+            quotient += tmp_quotient
+            dividend -= tmp_divisor
+            tmp_divisor += tmp_divisor
+            tmp_quotient = 2 * tmp_quotient
+
+    return sign * quotient
 
 
 print(divide(-2147483648, -1))
