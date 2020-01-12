@@ -47,3 +47,6 @@ def binary_search(nums, target, start, end):
 
 
 print(search_rotated_sorted_array([4, 5, 6, 7, 0, 1, 2], 0))
+print(search_rotated_sorted_array([4, 5, 6, 7, 0, 1, 2], 3))
+print(search_rotated_sorted_array([4], 4))
+print(search_rotated_sorted_array([], 4))
