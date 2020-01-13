@@ -7,7 +7,8 @@ The replacement must be in-place and use only constant extra memory.
 
 Here are some examples. Inputs are in the left-hand column and its corresponding outputs are in the right-hand column.
 
-In case we consider the permutations of {1,2,3} in lexicographical order then they will be “123, 132, 213, 231, 312, 321”.
+In case we consider the permutations of {1,2,3} in lexicographical order then they will be
+“123, 132, 213, 231, 312, 321”.
 
 S = {1, 2, 3, 4, 5, 6}
 
@@ -62,6 +63,8 @@ def next_permutation_sol2(nums):
     j = -1  # j is set to -1 for case `4321`, so need to reverse all in following step
     while i > 0:
         if nums[i - 1] < nums[i]:  # first one violates the trend
+            # 123 => 132,  1234 => 1243
+            # j = 1         j =2
             j = i - 1
             break
         i -= 1
