@@ -48,8 +48,6 @@ def rotate_sol1(M):
     :rtype: matrix: List[List[int]]
     """
     n = len(M)
-    for m in M:
-        print(m)
     for i in range(n // 2):
         for j in range(n - (n // 2)):
             #[~i] === [n-1-i].
